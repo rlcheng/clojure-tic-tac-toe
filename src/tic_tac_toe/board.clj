@@ -20,5 +20,12 @@
 	(for [x (range 0 width)]
 		(range x (get-size width) width)))
 
-(defn determine-winner [board marker]
+(defn winning-diagonals [width]
+	(list
+		(for [x (range 0 (get-size width) (inc width))]
+			x)
+		(for [x (range 1 (inc width))]
+			(* x (dec width)))))
+
+(defn determine-winner [board marker width]
 	true)
