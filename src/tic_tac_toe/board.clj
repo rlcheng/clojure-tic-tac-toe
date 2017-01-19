@@ -6,7 +6,7 @@
 	(* width width))
 
 (defn get-new-board [width]
-  vector (replicate (get-size width) space))
+  (repeat (get-size width) space))
 
 (defn place-marker [board position marker]
   (if (= space (get board position))
