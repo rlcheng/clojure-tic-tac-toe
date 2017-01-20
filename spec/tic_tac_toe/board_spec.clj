@@ -6,6 +6,7 @@
 (def empty-board-4x4 [" " " " " " " " " " " " " " " " " " " " " " " " " " " " " " " "])
 (def X "X")
 (def O "O")
+(def full-board-3x3 [X X X X X X X X X])
 (def test-board [X " " " " " " " " " " " " " " " "])
 (def X-first_row-win-board [X X X " " " " " " " " " " " "])
 (def O-second-row-win-board [" " " " " " O O O " " " " " "])
@@ -26,6 +27,12 @@
     (should= [X " " " " " " " " " " " " " " " "] (place-marker empty-board-3x3 0 X)))
   (it "should not place marker if position is not empty"
     (should= nil (place-marker test-board 0 O))))
+
+(describe "board full"
+  (it "should determine if board is full"
+    (should= false (full? empty-board-3x3))
+    (should= false (full? test-board))
+    (should= true (full? full-board-3x3))))
 
 (describe "winning row"
   (it "should return list of winning row combinations if width is 3"

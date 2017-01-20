@@ -13,6 +13,9 @@
     (assoc board position marker)
     nil))
 
+(defn full? [board]
+	(not-any? #(= space %) board))
+
 (defn winning-rows [width]
 	(partition width (range (get-size width))))
 
