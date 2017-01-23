@@ -3,7 +3,7 @@
 (def space " ")
 
 (defn get-size [width]
-	(* width width))
+  (* width width))
 
 (defn get-new-board [width]
   (repeat (get-size width) space))
@@ -14,21 +14,4 @@
     nil))
 
 (defn full? [board]
-	(not-any? #(= space %) board))
-
-(defn winning-rows [width]
-	(partition width (range (get-size width))))
-
-(defn winning-cols [width]
-	(for [x (range 0 width)]
-		(range x (get-size width) width)))
-
-(defn winning-diagonals [width]
-	(list
-		(for [x (range 0 (get-size width) (inc width))]
-			x)
-		(for [x (range 1 (inc width))]
-			(* x (dec width)))))
-
-(defn determine-winner [board marker width]
-	true)
+  (not-any? #(= space %) board))
