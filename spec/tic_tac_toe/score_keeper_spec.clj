@@ -8,27 +8,99 @@
 (def mix-row-3 [X O X])
 (def O-row-4 [O O O O])
 (def mix-row-4 [X O X O])
-(def empty-board-3x3 [" " " " " " " " " " " " " " " " " "])
-(def partial-board-3x3 [X O X O O X X " " O])
-(def X-first-row-win-3x3 [X X X " " " " " " " " " " " "])
-(def O-second-row-win-3x3 [" " " " " " O O O " " " " " "])
-(def X-third-row-win-3x3 [" " " " " " " " " " " " X X X])
-(def O-first-col-win-3x3 [O " " " " O " " " " O " " " "])
-(def X-second-col-win-3x3 [" " X " " " " X " " " " X " "])
-(def O-third-col-win-3x3 [" " " " O " " " " O " " " " O])
-(def X-first-diag-win-3x3 [X " " " " " " X " " " " " " X])
-(def O-second-diag-win-3x3 [" " " " O " " O " " O " " " "])
-(def X-first-row-win-4x4 [X X X X " " " " " " " " " " " " " " " " " " " " " " " "])
-(def O-second-row-win-4x4 [" " " " " " " " O O O O " " " " " " " " " " " " " " " "])
-(def X-third-row-win-4x4 [" " " " " " " " " " " " " " " " X X X X " " " " " " " "])
-(def O-fourth-row-win-4x4 [" " " " " " " " " " " " " " " " " " " " " " " " O O O O])
-(def X-first-col-win-4x4 [X " " " " " " X " " " " " " X " " " " " " X " " " " " "])
-(def O-second-col-win-4x4 [" " O " " " " " " O " " " " " " O " " " " " " O " " " "])
-(def X-third-col-win-4x4 [" " " " X " " " " " " X " " " " " " X " " " " " " X " "])
-(def O-fourth-col-win-4x4 [" " " " " " O " " " " " " O " " " " " " O " " " " " " O])
-(def X-first-diag-win-4x4 [X " " " " " " " " X " " " " " " " " X " " " " " " " " X])
-(def O-second-diag-win-4x4 [" " " " " " O " " " " O " " " " O " " " " O " " " " " "])
-(def stalemate-3x3 [X O X O O X X X O])
+(def empty-board-3x3
+  [" " " " " "
+   " " " " " "
+   " " " " " "])
+(def partial-board-3x3
+  [X O X
+   O O X
+   X " " O])
+(def X-first-row-win-3x3
+  [X X X
+   " " " " " "
+   " " " " " "])
+(def O-second-row-win-3x3
+  [" " " " " "
+   O O O
+   " " " " " "])
+(def X-third-row-win-3x3
+  [" " " " " "
+   " " " " " "
+   X X X])
+(def O-first-col-win-3x3
+  [O " " " "
+   O " " " "
+   O " " " "])
+(def X-second-col-win-3x3
+  [" " X " "
+   " " X " "
+   " " X " "])
+(def O-third-col-win-3x3
+  [" " " " O
+   " " " " O
+   " " " " O])
+(def X-first-diag-win-3x3
+  [X " " " "
+   " " X " "
+   " " " " X])
+(def O-second-diag-win-3x3
+  [" " " " O
+   " " O " "
+   O " " " "])
+(def X-first-row-win-4x4
+  [X X X X
+   " " " " " " " "
+   " " " " " " " "
+   " " " " " " " "])
+(def O-second-row-win-4x4
+  [" " " " " " " "
+   O O O O " " " " " " " "
+   " " " " " " " "])
+(def X-third-row-win-4x4
+  [" " " " " " " "
+   " " " " " " " "
+   X X X X
+   " " " " " " " "])
+(def O-fourth-row-win-4x4
+  [" " " " " " " "
+   " " " " " " " "
+   " " " " " " " "
+   O O O O])
+(def X-first-col-win-4x4
+  [X " " " " " "
+   X " " " " " "
+   X " " " " " "
+   X " " " " " "])
+(def O-second-col-win-4x4
+  [" " O " " " "
+   " " O " " " "
+   " " O " " " "
+   " " O " " " "])
+(def X-third-col-win-4x4
+  [" " " " X " "
+   " " " " X " "
+   " " " " X " "
+   " " " " X " "])
+(def O-fourth-col-win-4x4
+  [" " " " " " O
+   " " " " " " O
+   " " " " " " O
+   " " " " " " O])
+(def X-first-diag-win-4x4
+  [X " " " " " "
+   " " X " " " "
+   " " " " X " "
+   " " " " " " X])
+(def O-second-diag-win-4x4
+  [" " " " " " O
+   " " " " O " "
+   " " O " " " "
+   O " " " " " "])
+(def stalemate-3x3
+  [X O X
+   O O X
+   X X O])
 
 (describe "winning rows"
   (it "should return list of winning row combinations if width is 3"
