@@ -27,6 +27,11 @@
     (should= 9 (get-size 3))
     (should= 16 (get-size 4))))
 
+(describe "width of board"
+  (it "should figure out the width of a given board"
+    (should= 3 (get-width full-board-3x3))
+    (should= 4 (get-width empty-board-4x4))))
+
 (describe "create empty board"
   (it "should create a board with size of 9 if width is 3"
     (should= empty-board-3x3 (get-new-board 3)))

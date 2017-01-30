@@ -1,9 +1,13 @@
-(ns tic-tac-toe.board)
+(ns tic-tac-toe.board
+  (:require [clojure.math.numeric-tower :as math]))
 
 (def space " ")
 
 (defn get-size [width]
   (* width width))
+
+(defn get-width [board]
+  (math/sqrt (count board)))
 
 (defn get-new-board [width]
   (repeat (get-size width) space))
