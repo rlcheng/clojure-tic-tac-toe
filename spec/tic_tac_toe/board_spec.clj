@@ -14,9 +14,9 @@
 (def X "X")
 (def O "O")
 (def full-board-3x3
-  [X X X
-   X X X
-   X X X])
+  [X O X
+   O X X
+   O X O])
 (def test-board
   [X " " " "
    " " " " " "
@@ -43,6 +43,10 @@
     (should= test-board (place-marker empty-board-3x3 0 X)))
   (it "should not place marker if position is not empty"
     (should= nil (place-marker test-board 0 O))))
+
+(describe "get positions"
+  (it "should return list of markers at given positions of the board"
+    (should= (list X O X) (get-positions full-board-3x3 '(0 1 2)))))
 
 (describe "board full"
   (it "should determine if board is full"

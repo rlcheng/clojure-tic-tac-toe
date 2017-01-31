@@ -17,5 +17,8 @@
     (assoc board position marker)
     nil))
 
+(defn get-positions [board positions]
+  (map (fn[x] (get board x)) positions))
+
 (defn full? [board]
   (not-any? #(= space %) board))
