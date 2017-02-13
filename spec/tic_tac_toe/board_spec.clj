@@ -40,9 +40,7 @@
 
 (describe "place marker"
   (it "should place a marker"
-    (should= test-board (place-marker empty-board-3x3 0 X)))
-  (it "should not place marker if position is not empty"
-    (should= nil (place-marker test-board 0 O))))
+    (should= test-board (place-marker empty-board-3x3 0 X))))
 
 (describe "get positions"
   (it "should return list of markers at given positions of the board"
@@ -53,3 +51,13 @@
     (should= false (full? empty-board-3x3))
     (should= false (full? test-board))
     (should= true (full? full-board-3x3))))
+
+(describe "valid position"
+  (it "should return true if position is a valid board position"
+    (should= true (valid-position? test-board "1")))
+  (it "should return false if position is already taken"
+    (should= false (valid-position? test-board "0")))
+  (it "should return false if position is a non number input"
+    (should= false (valid-position? test-board "not valid")))
+  (it "should return false if position is a number but out of the range of possible board positions"
+    (should= false (valid-position? empty-board-3x3 "9"))))
