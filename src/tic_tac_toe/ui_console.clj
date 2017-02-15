@@ -30,7 +30,7 @@
         start-index 0
         last-index (dec (count board))]
     (if (board/valid-position? board input)
-      input
+      (read-string input)
       (do
         (error-message)
         (recur board)))))

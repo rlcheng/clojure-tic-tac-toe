@@ -38,12 +38,12 @@
       (with-out-str
         (print-board test-board)))))
 
-(describe "select position"
+(describe "get player position input"
   (it "should get player input to set location of marker"
-    (should= "1"
+    (should= 1
       (with-in-str "1"
         (get-position empty-board-3x3))))
   (it "should reject bad input for marker location until a good one is entered"
-    (should= "0"
-      (with-in-str "abc\n16\n0"
+    (should= 15
+      (with-in-str "abc\n16\n15"
         (get-position empty-board-4x4)))))
