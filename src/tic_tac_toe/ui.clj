@@ -11,8 +11,8 @@
         (output error-message)
         (recur prompt output)))))
 
-(defn print-board [board show]
-  (show board))
+(defn print-board [board output]
+  (output board))
 
 (defn get-position [board prompt output]
   (let [input (prompt "Place your move")

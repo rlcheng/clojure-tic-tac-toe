@@ -1,13 +1,12 @@
 (ns tic-tac-toe.ui-console-spec
   (:require [speclj.core :refer :all]
-            [tic-tac-toe.ui-console :refer :all]))
+            [tic-tac-toe.ui-console :refer :all]
+            [tic-tac-toe.board :refer :all]))
 
-(def X "X")
-(def O "O")
 (def test-board
-  [X " " O
-   O " " O
-   X " " X])
+  [X space O
+   O space O
+   X space X])
 
 (describe "console prompt"
   (it "should print a message and ask user for input"

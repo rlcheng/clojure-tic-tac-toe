@@ -1,26 +1,29 @@
 (ns tic-tac-toe.board-evaluator-spec
   (:require [speclj.core :refer :all]
-            [tic-tac-toe.board-evaluator :refer :all]))
+            [tic-tac-toe.board-evaluator :refer :all]
+            [tic-tac-toe.board :refer :all]))
 
-(def X "X")
-(def O "O")
 (def empty-board-3x3
-  [" " " " " "
-   " " " " " "
-   " " " " " "])
+  [space space space
+   space space space
+   space space space])
+
 (def X-first-row-win-3x3
   [X X X
-   " " " " " "
-   " " " " " "])
+   space space space
+   space space space])
+
 (def X-first-diag-win-3x3
-  [X " " " "
-   " " X " "
-   " " " " X])
+  [X space space
+   space X space
+   space space X])
+
 (def O-fourth-col-win-4x4
-  [" " " " " " O
-   " " " " " " O
-   " " " " " " O
-   " " " " " " O])
+  [space space space O
+   space space space O
+   space space space O
+   space space space O])
+
 (def stalemate-4x4
   [X O X X
    O X O X

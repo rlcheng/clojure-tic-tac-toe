@@ -3,24 +3,25 @@
             [tic-tac-toe.board :refer :all]))
 
 (def empty-board-3x3
-  [" " " " " "
-   " " " " " "
-   " " " " " "])
+  [space space space
+   space space space
+   space space space])
+
 (def empty-board-4x4
-  [" " " " " " " "
-   " " " " " " " "
-   " " " " " " " "
-   " " " " " " " "])
-(def X "X")
-(def O "O")
+  [space space space space
+   space space space space
+   space space space space
+   space space space space])
+
 (def full-board-3x3
   [X O X
    O X X
    O X O])
+
 (def test-board
-  [X " " " "
-   " " " " " "
-   " " " " " "])
+  [X space space
+   space space space
+   space space space])
 
 (describe "size of board"
   (it "should figure out size of board given width"

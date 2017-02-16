@@ -1,6 +1,8 @@
 (ns tic-tac-toe.board
   (:require [clojure.math.numeric-tower :as math]))
 
+(def X "X")
+(def O "O")
 (def space " ")
 
 (defn get-size [width]
