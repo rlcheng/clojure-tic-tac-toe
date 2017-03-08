@@ -13,3 +13,12 @@
 
 (defn new-human [prompt output]
   (Human. prompt output))
+
+(deftype AI [get-ai-position]
+  Player
+  (make-move [this board marker]
+    (let [position (get-ai-position board marker)]
+      (board/place-marker board position marker))))
+
+(defn new-ai [get-ai-position]
+  (AI. get-ai-position))
