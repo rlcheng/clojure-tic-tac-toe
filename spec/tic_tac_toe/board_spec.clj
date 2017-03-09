@@ -62,3 +62,16 @@
     (should= false (valid-position? test-board "not valid")))
   (it "should return false if position is a number but out of the range of possible board positions"
     (should= false (valid-position? empty-board-3x3 "9"))))
+
+(describe "available positions"
+  (it "should return all positions if a 3x3 board is blank"
+    (should= (list 0 1 2 3 4 5 6 7 8) (available-positions empty-board-3x3)))
+  (it "should return only the positions that are blank if 3x3 board has positions taken"
+    (should= (list 1 2 3 4 5 6 7 8) (available-positions test-board)))
+  (it "should return an empty list if all positions are taken"
+    (should= '() (available-positions full-board-3x3))))
+
+(describe "other marker"
+  (it "should return the opponent's marker"
+    (should= X (get-other-marker O))
+    (should= O (get-other-marker X))))

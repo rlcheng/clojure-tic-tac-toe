@@ -36,3 +36,16 @@
   (if (number? position-int)
     (and (in-range? start-index position-int last-index) (position-open? board position-int))
     false)))
+
+(defn- open-position [board position]
+  (if (position-open? board position)
+    position))
+
+(defn available-positions [board]
+  (let [positions (range (count board))]
+    (remove nil? (map (fn[x] (open-position board x)) positions))))
+
+(defn get-other-marker [marker]
+  (if (= X marker)
+    O
+    X))
