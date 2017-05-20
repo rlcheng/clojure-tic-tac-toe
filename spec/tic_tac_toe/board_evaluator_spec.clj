@@ -41,3 +41,15 @@
     (should= false (winner? empty-board-3x3 X)))
   (it "should return false if win is not detected on a full 4x4 board"
     (should= false (winner? stalemate-4x4 O))))
+
+(describe "draw"
+  (it "should return true if game is a draw"
+    (should= true (draw? stalemate-4x4))))
+
+(describe "game over"
+  (it "should return true if game is over due to draw"
+    (should= true (game-over? stalemate-4x4)))
+  (it "should return true if game is over due to a winner"
+    (should= true (game-over? X-first-diag-win-3x3)))
+  (it "should return false if game has no winner and has open positions"
+    (should= false (game-over? empty-board-3x3))))

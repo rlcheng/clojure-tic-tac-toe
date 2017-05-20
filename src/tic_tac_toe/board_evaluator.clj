@@ -23,3 +23,13 @@
         size (board/get-size width)
         combos (get-winning-combos width size)]
     (boolean (some #(same-marker? (board/get-positions board %) marker) combos))))
+
+(defn draw? [board]
+  (and (board/full? board)
+    (not (winner? board board/O))
+    (not (winner? board board/X))))
+
+(defn game-over? [board]
+  (or (draw? board)
+    (winner? board board/O)
+    (winner? board board/X)))

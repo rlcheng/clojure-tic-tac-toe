@@ -8,25 +8,39 @@
    space space space
    space space space])
 
-(def O-board-3x3
+(def O-center-3x3
+  [space space space
+   space O space
+   space space space])
+
+(def O-win-3x3
   [O O O
    space space space
    space space space])
 
+(def O-almost-win-3x3
+  [O O space
+   X space space
+   X space space])
+
+(def O-two-from-win-3x3
+  [O space space
+   X O space
+   space space X])
+
+(def X-one-from-win-3x3
+  [X O X
+   O X X
+   space space O])
+
 (describe "minmax"
   (it "should return middle position if board is empty"
-    (should= 4 (get-position empty-board-3x3 X))))
-
-(describe "score"
-	(it "should return score of win of current player"
-		(should= 10 (score O-board-3x3 O X 0)))
-	(it "should return score of win of other player"
-		(should= -10 (score O-board-3x3 X O 0)))
-	(it "should return score of 0 if no winner"
-		(should= 0 (score empty-board-3x3 X O 0)))
-  (it "should return score when depth is more than zero"
-    (should= 8 (score O-board-3x3 O X 2))))
-
-(describe "scores"
-  (it "should do stuff"
-    (should= 0 (scores O-board-3x3 O 0))))
+    (should= 0 (get-position empty-board-3x3 X)))
+  (it "should return a corner position if center is taken"
+    (should= 0 (get-position O-center-3x3 X)))
+  (it "should return the winning move"
+    (should= 2 (get-position O-almost-win-3x3 X)))
+  (it "should return move that sets up two wining paths"
+    (should= 1 (get-position O-two-from-win-3x3 O)))
+  (it "should return move that blocks opponent from winning"
+    (should= 6 (get-position X-one-from-win-3x3 O))))
